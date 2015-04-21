@@ -18,12 +18,12 @@
         <h1>Entry Form</h1>
 
         <form name="Name Action Form" action="response.jsp">
-            Enter your name:
+            Enter your name please:
             <center>
             <input type="text" name="name" value="" />
             </center>
             <br>
-            Enter your Age:
+            Enter your Age please:
             <center>
             <input type="text" name="age" value="" />
             </center>
