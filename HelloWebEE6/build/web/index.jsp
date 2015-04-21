@@ -23,7 +23,7 @@
             <input type="text" name="name" value="" />
             </center>
             <br>
-            Enter your Age!:
+            Enter your Age:
             <center>
             <input type="text" name="age" value="" />
             </center>
