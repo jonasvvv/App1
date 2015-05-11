@@ -126,9 +126,9 @@ table {
 #categoryRightColumn {
     background-color: #b2d2d2;
     margin-top: 10px;
-    width: 650px;
+    width: 300px;
     hight: 650px;
-    float: center;
+    float: right;
 }
 
 #selectedCategory {

@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : index
     Created on : 2015-apr-27, 11:09:14
@@ -13,21 +15,41 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+
         <div id='categoryRightColumn'>
 
-        <h1>Hej nu kan du logga ut</h1>
-        <form name='hej' action=<% request.logout();%>>
-            <input type="submit" value='log out'>
-        </form>
-    
+            <h1>Hej nu kan du logga ut</h1>
+            <form name='hej' action=<% request.logout();%>>
+                <input type="submit" value='log out'>
+            </form>
+
         </div>
-            
-            <div id='categoryLeftColumn'>
-                
-                
-                
-                
-            </div>
-</body>
+        <form name='hej' method="POST" action='controller'>
+            Matte 3000 <input type="text" name="nr"/> <br/>
+            Matte 4000 <input type="text" name="nr2"/> <br/>
+            <input type="submit" value="Buy" />
+        </form>
+        <sql:query var="result" dataSource="jdbc/shop">
+            SELECT * FROM PERSON
+        </sql:query>
+
+        <table border="1">
+            <!-- column headers -->
+            <tr>
+                <c:forEach var="columnName" items="${result.columnNames}">
+                    <th><c:out value="${columnName}"/></th>
+                    </c:forEach>
+            </tr>
+            <!-- column data -->
+            <c:forEach var="row" items="${result.rowsByIndex}">
+                <tr>
+                    <c:forEach var="column" items="${row}">
+                        <td><c:out value="${column}"/></td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
+
+
+    </body>
 </html>

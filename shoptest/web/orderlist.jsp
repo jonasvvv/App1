@@ -1,8 +1,6 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
-    Document   : index
-    Created on : 2015-apr-27, 11:09:14
+    Document   : orderlist
+    Created on : 2015-maj-11, 13:42:52
     Author     : jonasviklund
 --%>
 
@@ -11,25 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/shoptest.css">
         <title>JSP Page</title>
     </head>
     <body>
-
-        <div id='categoryRightColumn'>
-
-            <h1>Hej nu kan du logga ut</h1>
-            <form name='hej' action=<% request.logout();%>>
-                <input type="submit" value='log out'>
-            </form>
-
-        </div>
-        <form name='hej' method="POST" action='controller'>
-            Matte 3000 <input type="text" name="nr"/> <br/>
-            Matte 4000 <input type="text" name="nr2"/> <br/>
-            <input type="submit" value="Buy" />
-        </form>
-        <sql:query var="result" dataSource="jdbc/shop">
+       <sql:query var="result" dataSource="jdbc/shop">
             SELECT * FROM PERSON
         </sql:query>
 
@@ -49,7 +32,5 @@
                 </tr>
             </c:forEach>
         </table>
-
-
     </body>
 </html>

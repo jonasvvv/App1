@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : login
     Created on : 2015-apr-27, 10:48:22
@@ -16,8 +18,9 @@
 
 
     
-    
 <body>
+
+    
     <div id="header">
 <form method="POST" action='<%= response.encodeURL("j_security_check") %>'> <table border="0" cellspacing="5" align="center">
 <tr>
