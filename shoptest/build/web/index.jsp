@@ -25,8 +25,8 @@
 
         </div>
         <form name='hej' method="POST" action='controller'>
-            Matte 3000 <input type="text" name="nr"/> <br/>
-            Matte 4000 <input type="text" name="nr2"/> <br/>
+            Matte 3000 <input type="number" name="nr"/> <br/>
+            Matte 4000 <input type="number" name="nr2"/> <br/>
             <input type="submit" value="Buy" />
         </form>
         <sql:query var="result" dataSource="jdbc/shop">

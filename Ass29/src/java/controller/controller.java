@@ -14,6 +14,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
@@ -39,13 +40,26 @@ private DataSource dataSource;
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-        
+
             String nr = request.getParameter("nr");
             String nr2 = request.getParameter("nr2");
-            String user=request.getRemoteUser();
-            myBean.placeOrder(user,nr,nr2);
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-            rd.forward(request, response);
+            
+            myBean.placeOrder(nr,nr2);
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+                        out.println("<head>");
+            out.println("<title>Servlet NewServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("Tack för din order!");
+            out.println("</body>");
+            out.println("</html>");
+            
+           
+            try {Thread.sleep(3000);}
+            catch (Throwable t){}
+            
+            response.sendRedirect("index.jsp");
             
           
       

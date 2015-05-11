@@ -17,8 +17,7 @@
     <body>
 
         <div id='categoryRightColumn'>
-
-            <h1>Hej nu kan du logga ut</h1>
+            <h1>Hej, <c:out value="${pageContext.request.userPrincipal.name}" /> nu kan du logga ut</h1>
             <form name='hej' action=<% request.logout();%>>
                 <input type="submit" value='log out'>
             </form>
@@ -30,7 +29,7 @@
             <input type="submit" value="Buy" />
         </form>
         <sql:query var="result" dataSource="jdbc/shop">
-            SELECT * FROM PERSON
+            SELECT * FROM BOOKORDER
         </sql:query>
 
         <table border="1">
