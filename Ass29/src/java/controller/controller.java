@@ -45,21 +45,9 @@ private DataSource dataSource;
             String nr2 = request.getParameter("nr2");
             
             myBean.placeOrder(nr,nr2);
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-                        out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("Tack för din order!");
-            out.println("</body>");
-            out.println("</html>");
             
-           
-            try {Thread.sleep(3000);}
-            catch (Throwable t){}
+            response.sendRedirect("bye.jsp");
             
-            response.sendRedirect("index.jsp");
             
           
       

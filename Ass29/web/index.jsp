@@ -21,7 +21,7 @@
             <form name='hej' action=<% request.logout();%>>
                 <input type="submit" value='log out'>
             </form>
-
+                
         </div>
         <form name='hej' method="POST" action='controller'>
             Matte 3000 <input type="number" name="nr"/> <br/>
@@ -31,8 +31,11 @@
         <sql:query var="result" dataSource="jdbc/shop">
             SELECT * FROM BOOKORDER
         </sql:query>
-
+    
+             
+    
         <table border="1">
+            <caption>Orderhistorik</caption>
             <!-- column headers -->
             <tr>
                 <c:forEach var="columnName" items="${result.columnNames}">
