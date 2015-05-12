@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/shoptest.css">
-        <title>JSP Page</title>
+        <title>BOOKSHOP</title>
     </head>
     <body>
 
@@ -23,18 +23,25 @@
             </form>
                 
         </div>
-    <center>
+                
+    <div id='priceBox'
+       
+         
+        <h1>Köp böcker!</h1>
         <form name='hej' method="POST" action='controller'>
-            Matte 3000 <input type="number" name="nr"/> <br/>
+            
+            Matte 3000 <input align="center" type="number" name="nr"/> <br/>
             Matte 4000 <input type="number" name="nr2"/> <br/>
             <input type="submit" value="Buy" />
         </form>
-    </center>
+       
+    </div>
+    
         <sql:query var="result" dataSource="jdbc/shop">
             SELECT * FROM BOOKORDER
         </sql:query>
     
-             
+         <div id= 'infoBox'>    
     
         <table border="1">
             <caption>Orderhistorik</caption>
@@ -54,6 +61,6 @@
             </c:forEach>
         </table>
 
-
+    </div>
     </body>
 </html>

@@ -13,6 +13,14 @@ body {
     text-align: center;
     margin: 20px auto;
 }
+h1 {
+    text-align : center;
+  
+}
+form {
+    width: 300px;
+    margin: 0 auto;
+}
 
 hr {
     border: 0;
@@ -127,7 +135,7 @@ table {
 #categoryRightColumn {
     
     background-color: #b2d2d2;
-    margin-top: 400px;
+    margin-top: 360px;
     width: 300px;
     hight: 650px;
     float: right;
@@ -174,16 +182,20 @@ table {
 
 
 #infoBox {
+    margin-top: 200px;
+    background-color:#c3e3e0; 
     width: 300px;
     padding-left: 30px;
     float: left;
 }
 
 #priceBox {
+    text-align: right;
     padding: 10px;
     margin: 10px 0;
     height: 128px;
     background-color: #c3e3e0;
+    
 }
 
 
