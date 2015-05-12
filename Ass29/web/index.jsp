@@ -23,11 +23,13 @@
             </form>
                 
         </div>
+    <center>
         <form name='hej' method="POST" action='controller'>
             Matte 3000 <input type="number" name="nr"/> <br/>
             Matte 4000 <input type="number" name="nr2"/> <br/>
             <input type="submit" value="Buy" />
         </form>
+    </center>
         <sql:query var="result" dataSource="jdbc/shop">
             SELECT * FROM BOOKORDER
         </sql:query>

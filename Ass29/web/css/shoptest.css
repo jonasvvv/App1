@@ -62,9 +62,9 @@ table {
 /* styles for elements contained in the header, i.e.,
    shopping cart widget, language toggle, and logo */
 #header {
-    
+    margin-top: 50px;
     height: 500px;
-    background: #aaa;
+    background: red;
     text-align: center;
     float: none;
     clear: both;
@@ -125,8 +125,9 @@ table {
 }
 
 #categoryRightColumn {
+    
     background-color: #b2d2d2;
-    margin-top: 10px;
+    margin-top: 400px;
     width: 300px;
     hight: 650px;
     float: right;
