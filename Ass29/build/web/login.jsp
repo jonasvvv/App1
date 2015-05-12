@@ -22,6 +22,7 @@
 
     
     <div id="header">
+        <center>
 <form method="POST" action='<%= response.encodeURL("j_security_check") %>'> <table border="0" cellspacing="5" align="center">
 <tr>
 <td colspan="2" bgcolor="\#FFDC75">
@@ -45,6 +46,7 @@
 </tr>
 </table>
 </form>
+        </center>
 </div>
 </body>
 </html>

@@ -12,10 +12,11 @@
         <title>utcheckad</title>
     </head>
     <body>
+    <center>
         <h1>Tack för ditt köp!</h1>
         <form name='hej' action='index.jsp'>
                 <input type="submit" value='log out'>
         </form>
-            
+    </center> 
     </body>
 </html>

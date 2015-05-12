@@ -63,8 +63,9 @@ table {
    shopping cart widget, language toggle, and logo */
 #header {
     
-    height: 250px;
+    height: 500px;
     background: #aaa;
+    text-align: center;
     float: none;
     clear: both;
 }
