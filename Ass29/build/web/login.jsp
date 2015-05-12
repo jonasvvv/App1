@@ -23,14 +23,14 @@
     
     <div id="header">
         <center>
-<form method="POST" action='<%= response.encodeURL("j_security_check") %>'> <table border="0" cellspacing="5" align="center">
+<form method="POST" action='<%= response.encodeURL("j_security_check") %>'> <table bgcolor="\#FFDC75" border="0" cellspacing="5" align="center">
 <tr>
 <td colspan="2" bgcolor="\#FFDC75">
 <h2>Logga in för att se en fantastisk sida!</h2>
 </td>
 </tr>
 <tr>
-<td colspan="2"></td>
+<td colspan="1"></td>
 </tr>
 <tr>
 <th font color='red' align="right">Username:</th>
