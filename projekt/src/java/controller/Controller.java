@@ -22,7 +22,7 @@ import javax.sql.DataSource;
  * @author jonasviklund
  */
 @WebServlet(name="Controller",
-        loadOnStartup = 1,
+        loadOnStartup = -1,
         urlPatterns = { "/products",
                         "/cart",
                         "/order",})
@@ -77,14 +77,7 @@ public class Controller extends HttpServlet {
         // if category page is requested
         if (userPath.equals("/products")) {
              //TODO: Implement category request
-         PrintWriter out = response.getWriter();       
-    out.println("<html>");
-    out.println("<head>");
-    out.println("<title>Hola</title>");
-    out.println("</head>");
-    out.println("<body bgcolor=\"white\">");
-    out.println("</body>");
-    out.println("</html>");
+
         // if cart page is requested
         } else if (userPath.equals("/cart")) {
             // TODO: Implement cart page request
@@ -95,7 +88,7 @@ public class Controller extends HttpServlet {
         } else if (userPath.equals("/order")) {
             // TODO: Implement checkout page request
 
-      
+        }
 
         // use RequestDispatcher to forward request internally
         String url = "/WEB-INF/view" + userPath + ".jsp";
@@ -105,7 +98,7 @@ public class Controller extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        }
+        
        }
 
     /**
