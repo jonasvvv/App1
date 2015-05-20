@@ -1,8 +1,8 @@
 /*
-Document   : affablebean
-Created on : Jun 9, 2010, 3:59:32 PM
-Author     : tgiunipero
-Description: Style rules for the AffableBean application
+Document   : shop
+Created on : May 20, 2015, 3:59:32 PM
+Author     : Hans-Erik Bratt
+Description: Style sheet for shop
 */
 
 
@@ -40,33 +40,6 @@ table {
 
 /* general styles */
 #main { background: #eee }
-
-#singleColumn {
-    margin: 20px 30px;
-    text-align: left;
-}
-
-.lightBlue { background-color: #edf8f7 }
-
-.white { background-color: #fff }
-
-.bubble {
-    font-weight: bold;
-    background-color: #f5eabe;
-    padding: 5px;
-    color: inherit;
-}
-
-.hMargin { margin: 0 30px }
-
-.smallText { font-size: small }
-
-.header {
-    background-color: #c3e3e0;
-    height: 30px;
-}
-
-
 /* styles for elements contained in the header, i.e.,
    shopping cart widget, language toggle, and logo */
 #header {
@@ -88,77 +61,25 @@ table {
     color: #333;
 }
 
-
-
-
-/* footer styles */
-#footer {
-    height: 60px;
-    width: 350px;
-    clear: left;
-    background: #aaa;
-}
-
-
 /* index page styles */
-#indexLeftColumn {
+#leftColumn {
     height: 400px;
     width: 350px;
     float: center;
     background: #ccc;
 }
 
-
-
-.categoryBox {
-    height: 176px;
-    width: 212px;
-    margin: 21px 14px 6px;
-    float: inherit;
-    background: #ccc;
-}
-
-.categoryLabelText {
-    line-height: 150%;
-    font-size: x-large;
+#rightColumn {
+    height: 400px;
+    width: 350px;
+    float: center;
+    background: #aaa;
 }
 
 
-/* category page styles */
-#categoryLeftColumn {
-    width: 185px;
-    float: left;
-    margin-top: 25px;
-    padding-left: 15px;
-}
 
-#categoryRightColumn {
 
-    background-color: #b2d2d2;
-    margin-top: 360px;
-    width: 300px;
-    hight: 650px;
-    float: right;
-}
 
-#selectedCategory {
-    background-color: #b2d2d2;
-    margin-left: 10px;
-    width: 139px;
-}
-
-#categoryTitle {
-    margin: -34px 180px 0 0;
-    font-size: x-large;
-    float: right;
-    background-color: #f5eabe;
-    padding: 7px;
-}
-
-.categoryText {
-    line-height: 25px;
-    font-size: x-large;
-}
 
 #productTable { width: 600px }
 
@@ -173,10 +94,6 @@ table {
     width: 750px;
     text-align: center;
 }
-
-#subtotal { margin: 40px 0 20px 430px }
-
-
 
 /* checkout page styles */
 
