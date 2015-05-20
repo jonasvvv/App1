@@ -89,6 +89,12 @@ table {
     background-color: #d3ede8;
 }
 
+.choosen{
+    margin: 15px 22px;
+    padding: 13px;
+    display: block;
+    background-color: #f3fdf7;
+}
 #rightColumn {
     height: 400px;
     width: 650px;

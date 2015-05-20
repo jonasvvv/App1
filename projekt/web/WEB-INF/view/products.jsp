@@ -32,7 +32,7 @@
 
         <div id="leftColumn">
 
-            <a href="<c:url value='products'/>" class="productButton">
+            <a href="<c:url value='products'/>" class="choosen">
                 <span class="productText">Products</span>
             </a>
 

@@ -40,7 +40,7 @@
                 <span class="productText">Order history</span>
             </a>
 
-            <a href="<c:url value='cart'/>" class="productButton">
+            <a href="<c:url value='cart'/>" class="choosen">
                 <span class="productText">Shopping cart</span>
             </a>
 
@@ -48,11 +48,11 @@
 
         <div id="rightColumn">
             
-            
-                <form name='logout' action=logout.jsp>
-                    <input type="submit" value='log out'>
+            <div class="rightButton">
+                <form name='place order' method="POST" action=Controller>
+                    <input type="submit" value='Place order'>
                 </form>
-           
+            </div>
             
           visa saker i kundvagn
         </div>

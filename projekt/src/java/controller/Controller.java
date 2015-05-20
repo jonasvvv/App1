@@ -23,7 +23,8 @@ import javax.sql.DataSource;
  */
 @WebServlet(name="Controller",
         loadOnStartup = -1,
-        urlPatterns = { "/products",
+        urlPatterns = { "/Controller",
+            "/products",
                         "/cart",
                         "/order",})
 
@@ -112,9 +113,21 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       processRequest(request, response);
-    }
+       //processRequest(request, response);
+    
+        //lägg ordern
+        
+        try (PrintWriter out = response.getWriter()) {
 
+           String nr = request.getParameter("nr");
+           String nr2 = request.getParameter("nr2");
+
+            myBean.placeOrder(nr, nr2);
+
+            response.sendRedirect("bye.jsp");
+
+        }   
+    }
     /**
      * Returns a short description of the servlet.
      *
