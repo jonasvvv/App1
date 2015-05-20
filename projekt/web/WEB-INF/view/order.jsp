@@ -36,7 +36,7 @@
                 <span class="productText">Products</span>
             </a>
 
-            <a href="<c:url value='order'/>" class="productButton">
+            <a href="<c:url value='order'/>" class="choosen">
                 <span class="productText">Order history</span>
             </a>
 
