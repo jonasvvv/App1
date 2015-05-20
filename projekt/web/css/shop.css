@@ -34,7 +34,7 @@ table {
     margin: 0 20px;
     border-spacing: 0;
     text-align: center;
-    border: solid 1px #f5eabe;
+    //border: solid 1px #f5eabe;
 }
 
 
@@ -51,6 +51,17 @@ table {
     clear: none;
 }
 
+#loginbkgr{
+    position: static;
+    height: 600px;
+    background: #c3e3e0;
+}
+
+#loginbox{
+    background: #d3ede8;
+    width: 500px;
+    margin-top: 100px;
+}
 .shopname{
     position: static;
     margin: auto;
@@ -59,7 +70,7 @@ table {
     color: #333;
 }
 
-.logout{
+.rightButton{
     float: right;
 }
 
