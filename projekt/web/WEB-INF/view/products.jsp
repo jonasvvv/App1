@@ -36,11 +36,11 @@
                 <span class="productText">Products</span>
             </a>
 
-            <a href="/order" class="productButton">
+            <a href="<c:url value='order'/>" class="productButton">
                 <span class="productText">Order history</span>
             </a>
 
-            <a href="/cart" class="productButton">
+            <a href="<c:url value='cart'/>" class="productButton">
                 <span class="productText">Shopping cart</span>
             </a>
 
@@ -53,18 +53,18 @@
                         <td>Jill</td>
                         <td>Smith</td> 
                         <td><form name='logout' action=logout.jsp>
-                    <input type="number" >
-                </form></td>
+                                <input type="number" >
+                            </form></td>
                         <td><form name='köp' action=logout.jsp>
                                 <input type="submit" value='köp'>
                             </form></td>
                     </tr>
-                         <tr>
+                    <tr>
                         <td>Jill</td>
                         <td>Smith</td> 
                         <td><form name='logout' action=logout.jsp>
-                    <input type="number" >
-                </form></td>
+                                <input type="number" >
+                            </form></td>
                         <td><form name='köp' action=logout.jsp>
                                 <input type="submit" value='köp'>
                             </form></td>
