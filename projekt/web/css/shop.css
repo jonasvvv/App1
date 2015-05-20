@@ -38,6 +38,7 @@ table {
 }
 
 a {
+    color:inherit;
     text-decoration: none;
 }
 
@@ -49,7 +50,7 @@ a {
     margin: 0px;
     height: 100px;
     background: #c3e3e0;
-    text-align: center;
+    //text-align: center;
     float: none;
     clear: none;
 }
@@ -66,8 +67,7 @@ a {
     margin-top: 100px;
 }
 .shopname{
-    position: static;
-    margin: auto;
+    margin-left: 50px;
     font-family: 'American Typewriter', Courier, monospace;
     font-size: 20px;
     color: #333;
@@ -75,6 +75,9 @@ a {
 
 .rightButton{
     float: right;
+}
+#rightLogOutButt{
+    position: static
 }
 
 /* index page styles */
