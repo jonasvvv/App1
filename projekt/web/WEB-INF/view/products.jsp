@@ -18,7 +18,7 @@
 
         <div id='header'>
 
-            <div class="logout">
+            <div class="rightButton">
                 <form name='logout' action=logout.jsp>
                     <input type="submit" value='log out'>
                 </form>
