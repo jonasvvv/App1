@@ -35,15 +35,15 @@
                 <span class="productText">Poducts</span>
             </div>
 
-            <a href="/products" class="productButton">
+            <a href="<c:url value='products'/>" class="productButton">
                 <span class="productText">Poducts</span>
             </a>
 
-            <a href="order" class="productButton">
+            <a href="/order" class="productButton">
                 <span class="productText">Order history</span>
             </a>
 
-            <a href="/cart.jsp" class="productButton">
+            <a href="/cart" class="productButton">
                 <span class="productText">Shopping cart</span>
             </a>
 

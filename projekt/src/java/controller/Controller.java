@@ -21,11 +21,11 @@ import javax.sql.DataSource;
  *
  * @author jonasviklund
  */
-@WebServlet(name = "Controller",
+@WebServlet(name="Controller",
         loadOnStartup = 1,
-        urlPatterns = {"/products",
-            "/cart",
-            "/order",})
+        urlPatterns = { "/products",
+                        "/cart",
+                        "/order",})
 
 public class Controller extends HttpServlet {
 
@@ -44,19 +44,19 @@ public class Controller extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+       response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            String nr = request.getParameter("nr");
-            String nr2 = request.getParameter("nr2");
+           String nr = request.getParameter("nr");
+           String nr2 = request.getParameter("nr2");
 
             myBean.placeOrder(nr, nr2);
 
             response.sendRedirect("bye.jsp");
 
-        }
+        }   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -69,20 +69,35 @@ public class Controller extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+       protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
 
         String userPath = request.getServletPath();
 
+        // if category page is requested
         if (userPath.equals("/products")) {
-
+             //TODO: Implement category request
+         PrintWriter out = response.getWriter();       
+    out.println("<html>");
+    out.println("<head>");
+    out.println("<title>Hola</title>");
+    out.println("</head>");
+    out.println("<body bgcolor=\"white\">");
+    out.println("</body>");
+    out.println("</html>");
+        // if cart page is requested
         } else if (userPath.equals("/cart")) {
+            // TODO: Implement cart page request
 
+            userPath = "/cart";
+
+        // if checkout page is requested
         } else if (userPath.equals("/order")) {
+            // TODO: Implement checkout page request
 
-        }
+      
 
+        // use RequestDispatcher to forward request internally
         String url = "/WEB-INF/view" + userPath + ".jsp";
 
         try {
@@ -90,7 +105,8 @@ public class Controller extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
+        }
+       }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -103,7 +119,7 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       processRequest(request, response);
     }
 
     /**
