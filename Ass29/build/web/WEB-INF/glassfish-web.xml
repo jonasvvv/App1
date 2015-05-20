@@ -9,8 +9,7 @@ and open the template in the editor.
     <security-role-mapping>
         <role-name>24</role-name>
         <group-name>24</group-name>   
-    </security-role-mapping>
-    
+    </security-role-mapping>  
     <resource-ref>
         <res-ref-name>jdbc/shop</res-ref-name> 
         <jndi-name>jdbc/shop</jndi-name>

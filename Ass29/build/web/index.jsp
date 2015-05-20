@@ -21,46 +21,46 @@
             <form name='hej' action=<% request.logout();%>>
                 <input type="submit" value='log out'>
             </form>
-                
+
         </div>
-                
-    <div id='priceBox'
-       
-         
-        <h1>Köp böcker!</h1>
-        <form name='hej' method="POST" action='controller'>
-            
-            Matte 3000 <input align="center" type="number" name="nr"/> <br/>
-            Matte 4000 <input type="number" name="nr2"/> <br/>
-            <input type="submit" value="Buy" />
-        </form>
-       
-    </div>
-    
+
+        <div id='priceBox'
+
+
+             <h1>Köp böcker!</h1>
+            <form name='hej' method="POST" action='controller'>
+
+                Matte 3000 <input align="center" type="number" name="nr"/> <br/>
+                Matte 4000 <input type="number" name="nr2"/> <br/>
+                <input type="submit" value="Buy" />
+            </form>
+
+        </div>
+
         <sql:query var="result" dataSource="jdbc/shop">
             SELECT * FROM BOOKORDER
         </sql:query>
-    
-         <div id= 'infoBox'>    
-    
-        <table border="1">
-            <caption>Orderhistorik</caption>
-            <!-- column headers -->
-            <tr>
-                <c:forEach var="columnName" items="${result.columnNames}">
-                    <th><c:out value="${columnName}"/></th>
-                    </c:forEach>
-            </tr>
-            <!-- column data -->
-            <c:forEach var="row" items="${result.rowsByIndex}">
-                <tr>
-                    <c:forEach var="column" items="${row}">
-                        <td><c:out value="${column}"/></td>
-                    </c:forEach>
-                </tr>
-            </c:forEach>
-        </table>
 
-    </div>
+        <div id= 'infoBox'>    
+
+            <table border="1">
+                <caption>Orderhistorik</caption>
+                <!-- column headers -->
+                <tr>
+                    <c:forEach var="columnName" items="${result.columnNames}">
+                        <th><c:out value="${columnName}"/></th>
+                        </c:forEach>
+                </tr>
+                <!-- column data -->
+                <c:forEach var="row" items="${result.rowsByIndex}">
+                    <tr>
+                        <c:forEach var="column" items="${row}">
+                            <td><c:out value="${column}"/></td>
+                        </c:forEach>
+                    </tr>
+                </c:forEach>
+            </table>
+
+        </div>
     </body>
 </html>
