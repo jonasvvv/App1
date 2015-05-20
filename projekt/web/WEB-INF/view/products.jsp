@@ -47,32 +47,37 @@
         </div>
 
         <div id="rightColumn">
-            <div id="productTable">
-                <table style="width:100%">
-                    <tr>
-                        <td>Jill</td>
-                        <td>Smith</td> 
-                        <td><form name='logout' action=logout.jsp>
-                                <input type="number" >
-                            </form></td>
-                        <td><form name='köp' action=logout.jsp>
-                                <input type="submit" value='köp'>
-                            </form></td>
-                    </tr>
-                    <tr>
-                        <td>Jill</td>
-                        <td>Smith</td> 
-                        <td><form name='logout' action=logout.jsp>
-                                <input type="number" >
-                            </form></td>
-                        <td><form name='köp' action=logout.jsp>
-                                <input type="submit" value='köp'>
-                            </form></td>
-                    </tr>
-                </table>
+            <p id="categoryTitle">${selectedCategory.rows[0].name}</p>
 
+            <table id="productTable">
 
-            </div>
+                <c:forEach var="product" items="${categoryProducts.rows}" varStatus="iter">
+
+                    <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
+                        <td>
+                            <img src="${initParam.productImagePath}${product.name}.png"
+                                 alt="${product.name}">
+                        </td>
+                        <td>
+                            ${product.name}
+                            <br>
+                            <span class="smallText">${product.description}</span>
+                        </td>
+                        <td>
+                            &euro; ${product.price} / unit
+                        </td>
+                        <td>
+                            <form action="addToCart" method="post">
+                                <input type="hidden"
+                                       name="productId"
+                                       value="${product.id}">
+                                <input type="submit"
+                                       value="add to cart">
+                            </form>
+                        </td>
+                    </tr>
+
+                </c:forEach>    </table>
         </div>
 
     </body>

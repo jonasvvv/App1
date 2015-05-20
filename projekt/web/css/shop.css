@@ -37,6 +37,9 @@ table {
     //border: solid 1px #f5eabe;
 }
 
+a {
+    text-decoration: none;
+}
 
 /* general styles */
 #main { background: #eee }
@@ -79,7 +82,7 @@ table {
     height: 400px;
     width: 150px;
     float: left;
-    background: #c3e3e0;
+    background: #c3e3e0; 
 }
 
 .productButton{
