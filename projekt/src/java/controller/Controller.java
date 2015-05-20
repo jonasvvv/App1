@@ -5,28 +5,36 @@
  */
 package controller;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
-import javax.servlet.RequestDispatcher;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
  *
  * @author jonasviklund
  */
-public class controller extends HttpServlet {
+@WebServlet(name = "Controller",
+        loadOnStartup = 1,
+        urlPatterns = {"/products",
+            "/cart",
+            "/order",})
+
+public class Controller extends HttpServlet {
+
     @EJB
     private OurBean myBean;
 
-@Resource(name="jdbc/shop") // The name you entered for the JDBC resource 
-private DataSource dataSource;
+    @Resource(name = "jdbc/shop") // The name you entered for the JDBC resource 
+    private DataSource dataSource;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,15 +51,12 @@ private DataSource dataSource;
 
             String nr = request.getParameter("nr");
             String nr2 = request.getParameter("nr2");
-            
-            myBean.placeOrder(nr,nr2);
-            
+
+            myBean.placeOrder(nr, nr2);
+
             response.sendRedirect("bye.jsp");
-            
-            
-          
-      
-    }
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,6 +72,24 @@ private DataSource dataSource;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
+        String userPath = request.getServletPath();
+
+        if (userPath.equals("/products")) {
+
+        } else if (userPath.equals("/cart")) {
+
+        } else if (userPath.equals("/order")) {
+
+        }
+
+        String url = "/WEB-INF/view" + userPath + ".jsp";
+
+        try {
+            request.getRequestDispatcher(url).forward(request, response);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
