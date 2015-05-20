@@ -25,7 +25,7 @@
             </div>
 
             <div class="shopname">
-                 <a href ="index.jsp" >
+                <a href ="index.jsp" >
                     <h1>Store</h1>
                 </a>     
             </div>
@@ -79,7 +79,8 @@
                         </td>
                     </tr>
 
-                </c:forEach>    </table>
+                </c:forEach>   
+            </table>
         </div>
 
     </body>
