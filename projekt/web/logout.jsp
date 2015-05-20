@@ -9,14 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>utcheckad</title>
+        <title>logout</title>
     </head>
     <body>
     <center>
-        <h1>Tack för ditt köp!</h1>
-        <form name='hej' action='index.jsp'>
-            <input type="submit" value='back'>
-        </form>
+        <h1>Välkommen åter!</h1>
+        <% request.logout();%>
     </center> 
 </body>
 </html>
+
+

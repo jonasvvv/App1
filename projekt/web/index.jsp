@@ -16,51 +16,44 @@
     </head>
     <body>
 
-        <div id='categoryRightColumn'>
-            <h1>Hej, <c:out value="${pageContext.request.userPrincipal.name}" /> nu kan du logga ut</h1>
-            <form name='hej' action=<% request.logout();%>>
-                <input type="submit" value='log out'>
-            </form>
+        <div id='header'>
+
+            <div class="logout">
+                <form name='logout' action=logout.jsp>
+                    <input type="submit" value='log out'>
+                </form>
+            </div>
+
+            <div class="shopname">
+                <h1>Store</h1>    
+            </div>
 
         </div>
 
-        <div id='priceBox'
+        <div id="leftColumn">
+            <div class="productButton" id="selectedCategory">
+                <span class="productText">Poducts</span>
+            </div>
 
+            <a href="/products" class="productButton">
+                <span class="productText">Poducts</span>
+            </a>
 
-             <h1>Köp böcker!</h1>
-            <form name='hej' method="POST" action='controller'>
+            <a href="order" class="productButton">
+                <span class="productText">Order history</span>
+            </a>
 
-                Matte 3000 <input align="center" type="number" name="nr"/> <br/>
-                Matte 4000 <input type="number" name="nr2"/> <br/>
-                <input type="submit" value="Buy" />
-            </form>
-
-        </div>
-
-        <sql:query var="result" dataSource="jdbc/shop">
-            SELECT * FROM BOOKORDER
-        </sql:query>
-
-        <div id= 'infoBox'>    
-
-            <table border="1">
-                <caption>Orderhistorik</caption>
-                <!-- column headers -->
-                <tr>
-                    <c:forEach var="columnName" items="${result.columnNames}">
-                        <th><c:out value="${columnName}"/></th>
-                        </c:forEach>
-                </tr>
-                <!-- column data -->
-                <c:forEach var="row" items="${result.rowsByIndex}">
-                    <tr>
-                        <c:forEach var="column" items="${row}">
-                            <td><c:out value="${column}"/></td>
-                        </c:forEach>
-                    </tr>
-                </c:forEach>
-            </table>
+            <a href="/cart.jsp" class="productButton">
+                <span class="productText">Shopping cart</span>
+            </a>
 
         </div>
+
+        <div id="rightColumn">
+            <span class="body" >
+            Hej här kan man nu skriva lite text om saker
+            </span>
+        </div>
+       
     </body>
 </html>
