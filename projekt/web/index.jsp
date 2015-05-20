@@ -31,19 +31,16 @@
         </div>
 
         <div id="leftColumn">
-            <div class="productButton" id="selectedCategory">
-                <span class="productText">Poducts</span>
-            </div>
 
-            <a href="/products" class="productButton">
-                <span class="productText">Poducts</span>
+            <a href="<c:url value='products'/>" class="productButton">
+                <span class="productText">Products</span>
             </a>
 
-            <a href="order" class="productButton">
+            <a href="<c:url value='order'/>" class="productButton">
                 <span class="productText">Order history</span>
             </a>
 
-            <a href="/cart.jsp" class="productButton">
+            <a href="<c:url value='cart'/>" class="productButton">
                 <span class="productText">Shopping cart</span>
             </a>
 
