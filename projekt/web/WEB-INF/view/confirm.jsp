@@ -47,14 +47,7 @@
         </div>
 
         <div id="rightColumn">
-            
-            <div class="rightButton">
-                <form name='place order' method="POST" action=Controller>
-                    <input type="submit" name="palce" value='Place order'>
-                </form>
-            </div>
-            
-          visa saker i kundvagn
+Tack för ditt köp!
         </div>
 
     </body>

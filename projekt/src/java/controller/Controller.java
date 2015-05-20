@@ -24,8 +24,9 @@ import javax.sql.DataSource;
 @WebServlet(name="Controller",
         loadOnStartup = -1,
         urlPatterns = { "/Controller",
-            "/products",
+                        "/products",
                         "/cart",
+                        "/confirm",
                         "/order",})
 
 public class Controller extends HttpServlet {
@@ -89,8 +90,11 @@ public class Controller extends HttpServlet {
         } else if (userPath.equals("/order")) {
             // TODO: Implement checkout page request
 
-        }
 
+         } else if (userPath.equals("/confirm")) {
+            // TODO: Implement checkout page request
+
+        }
         // use RequestDispatcher to forward request internally
         String url = "/WEB-INF/view" + userPath + ".jsp";
 
@@ -114,9 +118,9 @@ public class Controller extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        //processRequest(request, response);
-    
+
         //lägg ordern
-        
+     if (request.getParameter("palce")!= null) {  
         try (PrintWriter out = response.getWriter()) {
 
            String nr = request.getParameter("nr");
@@ -124,9 +128,9 @@ public class Controller extends HttpServlet {
 
             myBean.placeOrder(nr, nr2);
 
-            response.sendRedirect("bye.jsp");
-
-        }   
+        response.sendRedirect("/projekt/confirm");
+        } 
+     }
     }
     /**
      * Returns a short description of the servlet.
