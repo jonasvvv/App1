@@ -54,7 +54,7 @@
 
                 <c:forEach var="ordervect" items="${order}" varStatus="iter">
                     <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
-                        <c:forEach var="orderHist" items="${orderHist}" varStatus="iter">
+                        <c:forEach var="orderHist" items="${orderVect}" varStatus="iter">
                             <td>
                                 <c:out value="${orderHist}"></c:out>
                                 </td>

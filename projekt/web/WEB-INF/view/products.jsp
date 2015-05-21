@@ -65,6 +65,9 @@
 
                         <td>
                             <form action="Controller" method="post">
+                                <input type="hidden"
+                               name="productId"
+                               value="${product.id}">
                                 <input type="submit" name='toCart'
                                        value="add to cart">
                             </form>
