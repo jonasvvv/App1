@@ -9,6 +9,7 @@ import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -47,7 +48,8 @@ public class OurBean {
         }
     }
 
-    public ResultSet getOrderHist(String CName) {
+    public ArrayList getOrderHist(String CName) {
+        ArrayList list = new ArrayList();
         try {
             try (Connection conn = dataSource.getConnection()) {
 
@@ -56,15 +58,23 @@ public class OurBean {
                 pstmt.setString(1, CName);
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
                 ResultSet rs = pstmt.executeQuery();
-                return rs;
+
+                while (rs.next()) {
+                    ArrayList row = new ArrayList();
+                    for (int i = 1; i <= 4; i++) {
+                        row.add(rs.getString(i));
+                    }
+                    list.add(row);
+                }
             }
         } catch (Throwable e) {
             out.println(e);
-            return null;
         }
+        return list;
     }
 
-    public ResultSet getCInfo(String CName) {
+    public ArrayList getCInfo(String CName) {
+        ArrayList list = new ArrayList();
         try {
             try (Connection conn = dataSource.getConnection()) {
                 // Create a new row in the database
@@ -72,26 +82,40 @@ public class OurBean {
                 pstmt.setString(1, CName);
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
                 ResultSet rs = pstmt.executeQuery();
-                return rs;
+
+                while (rs.next()) {
+                    ArrayList row = new ArrayList();
+                    for (int i = 1; i <= 3; i++) {
+                        row.add(rs.getString(i));
+                    }
+                    list.add(row);
+                }
             }
         } catch (Throwable e) {
             out.println(e);
-            return null;
         }
+        return list;
     }
-    
-        public ResultSet getProducts() {
+
+    public ArrayList getProducts() {
+        ArrayList list = new ArrayList();
         try {
             try (Connection conn = dataSource.getConnection()) {
                 // Create a new row in the database
                 PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM Products");
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
                 ResultSet rs = pstmt.executeQuery();
-                return rs;
+                while (rs.next()) {
+                    ArrayList row = new ArrayList();
+                    for (int i = 1; i <= 2; i++) {
+                        row.add(rs.getString(i));
+                    }
+                    list.add(row);
+                }
             }
         } catch (Throwable e) {
             out.println(e);
-            return null;
         }
+        return list;
     }
 }
