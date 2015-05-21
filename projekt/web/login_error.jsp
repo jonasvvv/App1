@@ -9,7 +9,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <html>
 <head>
-<title>Error Page for the SHOP</title>
+<title>Error Page for the Bookshop</title>
 </head>
 <body bgcolor="white">
 Invalid username and/or password, please try

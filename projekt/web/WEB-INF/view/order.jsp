@@ -1,88 +1,35 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%-- 
+<%--
     Document   : index
-    Created on : 2015-apr-27, 11:09:14
-    Author     : jonasviklund
+    Created on : Jun 9, 2010, 3:59:32 PM
+    Author     : tgiunipero
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/shop.css">
-        <title>SHOP</title>
-    </head>
-    <body>
 
-        <div id='header'>
-
-            <div class="rightButton">
-                <form name='logout' action=logout.jsp>
-                    <input type="submit" value='log out'>
-                </form>
+            <div id="indexLeftColumn">
+                <div id="welcomeText">
+                    <p>[ welcome text ]</p>
+                </div>
             </div>
 
-            <div class="shopname">
-                <a href ="index.jsp" >
-                    <h1>Store</h1>
-                </a>      
+            <div id="indexRightColumn">
+                <div class="categoryBox">
+                    <a href="#">
+                        <span class="categoryLabelText">dairy</span>
+                    </a>
+                </div>
+                <div class="categoryBox">
+                    <a href="#">
+                        <span class="categoryLabelText">meats</span>
+                    </a>
+                </div>
+                <div class="categoryBox">
+                    <a href="#">
+                        <span class="categoryLabelText">bakery</span>
+                    </a>
+                </div>
+                <div class="categoryBox">
+                    <a href="#">
+                        <span class="categoryLabelText">fruit & veg</span>
+                    </a>
+                </div>
             </div>
-
-        </div>
-
-        <div id="leftColumn">
-
-            <a href="<c:url value='products'/>" class="productButton">
-                <span class="productText">Products</span>
-            </a>
-
-            <a href="<c:url value='order'/>" class="choosen">
-                <span class="productText">Order history</span>
-            </a>
-
-            <a href="<c:url value='cart'/>" class="productButton">
-                <span class="productText">Shopping cart</span>
-            </a>
-
-        </div>
-
-        <div id="rightColumn">
-
-            <p id="categoryTitle">${order.rows[0].name}</p>
-
-            <table id="productTable">
-
-                <c:forEach var="order" items="${order.rows}" varStatus="iter">
-
-                    <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
-                        <td>
-                            <img src="${initParam.productImagePath}${product.name}.png"
-                                 alt="${product.name}">
-                        </td>
-                        <td>
-                            ${product.name}
-                            <br>
-                            <span class="smallText">${product.description}</span>
-                        </td>
-                        <td>
-                            &euro; ${product.price} / unit
-                        </td>
-                        <td>
-                            <form action="addToCart" method="post">
-                                <input type="hidden"
-                                       name="productId"
-                                       value="${product.id}">
-                                <input type="submit"
-                                       value="add to cart">
-                            </form>
-                        </td>
-                    </tr>
-
-                </c:forEach>   
-            </table>
-        </div>
-
-    </body>
-</html>

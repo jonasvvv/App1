@@ -12,37 +12,38 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/shop.css">
-        <title>SHOP</title>
+        <title>BOOKSHOP</title>
     </head>
     <body>
 
         <div id='header'>
 
-            <div class="rightButton">
+            <div class="logout">
                 <form name='logout' action=logout.jsp>
                     <input type="submit" value='log out'>
                 </form>
             </div>
 
             <div class="shopname">
-                <a href ="index.jsp" >
-                    Store
-                </a>    
+                <h1>Store</h1>    
             </div>
 
         </div>
 
         <div id="leftColumn">
+            <div class="productButton" id="selectedCategory">
+                <span class="productText">Poducts</span>
+            </div>
 
-            <a href="<c:url value='products'/>" class="productButton">
-                <span class="productText">Products</span>
+            <a href="/products" class="productButton">
+                <span class="productText">Poducts</span>
             </a>
 
-            <a href="<c:url value='order'/>" class="productButton">
+            <a href="order" class="productButton">
                 <span class="productText">Order history</span>
             </a>
 
-            <a href="<c:url value='cart'/>" class="productButton">
+            <a href="/cart.jsp" class="productButton">
                 <span class="productText">Shopping cart</span>
             </a>
 

@@ -15,14 +15,6 @@
     <center>
         <h1>Välkommen åter!</h1>
         <% request.logout();%>
-
-
-        <form name='back' action=login.jsp>
-            <input type="submit" value='back'>
-        </form>
-
-
-
     </center> 
 </body>
 </html>
