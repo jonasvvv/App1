@@ -70,6 +70,10 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
 
+        if (request.getParameter("products") != null) {
+        
+            request.setAttribute(myBean.getProducts(),"products");
+                    }
         String userPath = request.getServletPath();
 
         if (userPath.equals("/products")) {

@@ -49,19 +49,18 @@
         </div>
 
         <div id="rightColumn">
-            <p id="categoryTitle">${selectedCategory.rows[0].name}</p>
+            <%--<p id="categoryTitle">${selectedCategory.rows[0].name}</p>--%>
 
             <table id="productTable">
 
-                <c:forEach var="product" items="${categoryProducts.rows}" varStatus="iter">
+                <c:forEach var="productvect" items="${products}" varStatus="iter">
 
+                    <c:forEach var="products" items="productvect" varStatus="iter">
+                    
                     <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
+                    
                         <td>
-                            <img src="${initParam.productImagePath}${product.name}.png"
-                                 alt="${product.name}">
-                        </td>
-                        <td>
-                            ${product.name}
+                            <c:out value="${products}"></c:out>
                             <br>
                             <span class="smallText">${product.description}</span>
                         </td>
@@ -78,7 +77,7 @@
                             </form>
                         </td>
                     </tr>
-
+                         </c:forEach>
                 </c:forEach>   
             </table>
         </div>
