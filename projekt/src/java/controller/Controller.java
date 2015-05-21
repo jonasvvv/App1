@@ -78,7 +78,7 @@ public class Controller extends HttpServlet {
         } else if (userPath.equals("/cart")) {
 
         } else if (userPath.equals("/order")) {
-
+            request.setAttribute("order", myBean.getOrderHist(request.getRemoteUser()));
         } else if (userPath.equals("/confirm")) {
 
         }

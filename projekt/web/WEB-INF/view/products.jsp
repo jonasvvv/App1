@@ -64,7 +64,7 @@
                         </c:forEach>
 
                         <td>
-                            <form action="addToCart" method="post">
+                            <form action="Controller" method="post">
                                 <input type="submit" name='toCart'
                                        value="add to cart">
                             </form>
