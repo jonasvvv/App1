@@ -23,9 +23,10 @@ import javax.sql.DataSource;
  */
 @WebServlet(name = "Controller",
         loadOnStartup = 1,
-        urlPatterns = {"/products",
+        urlPatterns = {"/Controller","/products",
+            "/confirm",
             "/cart",
-            "/order",})
+            "/order"})
 
 public class Controller extends HttpServlet {
 
@@ -52,10 +53,6 @@ public class Controller extends HttpServlet {
             String nr = request.getParameter("nr");
             String nr2 = request.getParameter("nr2");
 
-            myBean.placeOrder(nr, nr2);
-
-            response.sendRedirect("bye.jsp");
-
         }
     }
 
@@ -71,7 +68,7 @@ public class Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
 
         String userPath = request.getServletPath();
 
@@ -80,6 +77,8 @@ public class Controller extends HttpServlet {
         } else if (userPath.equals("/cart")) {
 
         } else if (userPath.equals("/order")) {
+
+        } else if (userPath.equals("/confirm")) {
 
         }
 
@@ -103,7 +102,12 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        if (request.getParameter("place") != null) {
+           myBean.placeOrder(request.getRemoteUser());
+            response.sendRedirect("/projekt/confirm");
+        
+        }
     }
 
     /**

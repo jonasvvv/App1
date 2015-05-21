@@ -52,7 +52,7 @@
             
             <div class="rightButton">
                 <form name='place order' method="POST" action=Controller>
-                    <input type="submit" name="palce" value='Place order'>
+                    <input type="submit" name="place" value='Place order'>
                 </form>
             </div>
             
