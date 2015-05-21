@@ -25,9 +25,9 @@
             </div>
 
             <div class="shopname">
-                <a href ="index.jsp" >
-                    Store
-                </a>    
+                 <a href ="index.jsp" >
+                    <h1>Store</h1>
+                </a>     
             </div>
 
         </div>
@@ -42,17 +42,15 @@
                 <span class="productText">Order history</span>
             </a>
 
-            <a href="<c:url value='cart'/>" class="productButton">
+            <a href="<c:url value='cart'/>" class="choosen">
                 <span class="productText">Shopping cart</span>
             </a>
 
         </div>
 
         <div id="rightColumn">
-            <span class="body" >
-            Hej här kan man nu skriva lite text om saker
-            </span>
+Tack för ditt köp!
         </div>
-       
+
     </body>
 </html>

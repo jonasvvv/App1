@@ -30,14 +30,6 @@
     <security-role>
         <role-name>24</role-name>
     </security-role>
-    <servlet>
-        <servlet-name>controller</servlet-name>
-        <servlet-class>controller.Controller</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>controller</servlet-name>
-        <url-pattern>/controller</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
