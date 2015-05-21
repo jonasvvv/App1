@@ -50,17 +50,34 @@
 
         <div id="rightColumn">
 
+            <p id="categoryTitle">${order.rows[0].name}</p>
+
             <table id="productTable">
 
-                <c:forEach var="ordervect" items="${order}" varStatus="iter">
-                    <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
-                        <c:forEach var="orderHist" items="${orderVect}" varStatus="iter">
-                            <td>
-                                <c:out value="${orderHist}"></c:out>
-                                </td>
+                <c:forEach var="order" items="${order.rows}" varStatus="iter">
 
-                        </c:forEach>
-
+                    <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
+                        <td>
+                            <img src="${initParam.productImagePath}${product.name}.png"
+                                 alt="${product.name}">
+                        </td>
+                        <td>
+                            ${product.name}
+                            <br>
+                            <span class="smallText">${product.description}</span>
+                        </td>
+                        <td>
+                            &euro; ${product.price} / unit
+                        </td>
+                        <td>
+                            <form action="addToCart" method="post">
+                                <input type="hidden"
+                                       name="productId"
+                                       value="${product.id}">
+                                <input type="submit"
+                                       value="add to cart">
+                            </form>
+                        </td>
                     </tr>
 
                 </c:forEach>   

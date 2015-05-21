@@ -118,48 +118,4 @@ public class OurBean {
         }
         return list;
     }
-    
-    public ArrayList getShoppingCart() {
-        ArrayList list = new ArrayList();
-        try {
-            try (Connection conn = dataSource.getConnection()) {
-                // Create a new row in the database
-                PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ShoppingCart");
-                //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
-                ResultSet rs = pstmt.executeQuery();
-                while (rs.next()) {
-                    ArrayList row = new ArrayList();
-                    for (int i = 1; i <= 2; i++) {
-                        row.add(rs.getString(i));
-                    }
-                    list.add(row);
-                }
-            }
-        } catch (Throwable e) {
-            out.println(e);
-        }
-        return list;
-    }
-
-
-    public void addShoppingCart(String CName, int pid) {
-        try {
-            try (Connection conn = dataSource.getConnection()) {
-                PreparedStatement getCart = conn.prepareStatement("Select * from ShoppingCart where CName=?");
-                getCart.setString(1, CName);
-                ResultSet cart = getCart.executeQuery();
-                
-                PreparedStatement pstmt = conn.prepareStatement("INSERT INTO SHOPPINGCART(CName, Prod1, Prod2, Prod3) VALUES (?,?,?,?);");
-                pstmt.setString(1, CName);
-                pstmt.setInt(pid+1, cart.getInt(pid)+1);
-                // Create a new row in the database
-
-                //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
-                pstmt.executeUpdate();
-            }
-        } catch (Throwable e) {
-            out.println(e);
-        }
-    }
-    
 }

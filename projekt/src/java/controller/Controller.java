@@ -75,13 +75,10 @@ public class Controller extends HttpServlet {
 
         if (userPath.equals("/products")) {
             request.setAttribute("products", myBean.getProducts());
-            
         } else if (userPath.equals("/cart")) {
-            //request.setAttribute("cart", myBean.getShoppingCart());
-            
+
         } else if (userPath.equals("/order")) {
-            request.setAttribute("order", myBean.getOrderHist(request.getRemoteUser()));
-            
+
         } else if (userPath.equals("/confirm")) {
 
         }
@@ -114,7 +111,7 @@ public class Controller extends HttpServlet {
         }
 
         if (request.getParameter("toCart") != null) {
-           // myBean.addShoppingCart(request.getRemoteUser(),request.getParameter("productId"));
+            myBean.placeOrder(request.getRemoteUser());
             response.sendRedirect("/projekt/confirm");
 
         }
