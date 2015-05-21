@@ -5,7 +5,6 @@
  */
 package controller;
 
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.annotation.Resource;
@@ -23,7 +22,7 @@ import javax.sql.DataSource;
  */
 @WebServlet(name = "Controller",
         loadOnStartup = 1,
-        urlPatterns = {"/Controller","/products",
+        urlPatterns = {"/Controller", "/products",
             "/confirm",
             "/cart",
             "/order"})
@@ -70,14 +69,12 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
 
-        if (request.getParameter("products") != null) {
-        
-            request.setAttribute(myBean.getProducts(),"products");
-                    }
+       // if (request.getParameter("products") != null) {
+        //  }
         String userPath = request.getServletPath();
 
         if (userPath.equals("/products")) {
-
+            request.setAttribute("products", myBean.getProducts());
         } else if (userPath.equals("/cart")) {
 
         } else if (userPath.equals("/order")) {
@@ -108,9 +105,15 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         if (request.getParameter("place") != null) {
-           myBean.placeOrder(request.getRemoteUser());
+            myBean.placeOrder(request.getRemoteUser());
             response.sendRedirect("/projekt/confirm");
-        
+
+        }
+
+        if (request.getParameter("toCart") != null) {
+            myBean.placeOrder(request.getRemoteUser());
+            response.sendRedirect("/projekt/confirm");
+
         }
     }
 

@@ -49,35 +49,28 @@
         </div>
 
         <div id="rightColumn">
-            <%--<p id="categoryTitle">${selectedCategory.rows[0].name}</p>--%>
 
             <table id="productTable">
 
                 <c:forEach var="productvect" items="${products}" varStatus="iter">
+                    <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
+                        <c:forEach var="product" items="${productvect}" varStatus="iter">
+                            <td>
+                                <c:out value="${product}"></c:out>
 
-                    <c:forEach var="products" items="productvect" varStatus="iter">
-                    
-                    <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
-                    
-                        <td>
-                            <c:out value="${products}"></c:out>
-                            <br>
-                            <span class="smallText">${product.description}</span>
-                        </td>
-                        <td>
-                            &euro; ${product.price} / unit
-                        </td>
+
+                                </td>
+
+                        </c:forEach>
+
                         <td>
                             <form action="addToCart" method="post">
-                                <input type="hidden"
-                                       name="productId"
-                                       value="${product.id}">
-                                <input type="submit"
+                                <input type="submit" name='toCart'
                                        value="add to cart">
                             </form>
                         </td>
                     </tr>
-                         </c:forEach>
+
                 </c:forEach>   
             </table>
         </div>

@@ -30,3 +30,5 @@ FOREIGN KEY (CName) REFERENCES Customer(CName));
 
 INSERT INTO Customer Values ('Jonas', 'Gatan 1, 75324 Uppsala', 'Jonas', 'Viklund' );
 INSERT INTO Products Values ('En bok', 100);
+INSERT INTO Products Values ('två bok', 150);
+INSERT INTO Products Values ('tre bok', 200);
