@@ -24,7 +24,7 @@ import javax.sql.DataSource;
         loadOnStartup = 1,
         urlPatterns = {"/products",
             "/Controller",
-                "/confirm",
+            "/confirm",
             "/cart",
             "/order"})
 
@@ -48,7 +48,7 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
- 
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,7 +65,7 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
 
-       // if (request.getParameter("products") != null) {
+        // if (request.getParameter("products") != null) {
         //  }
         String userPath = request.getServletPath();
 
@@ -102,22 +102,19 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         if (request.getParameter("place") != null) {
-        if(myBean.placeOrder(request.getRemoteUser())){
-            response.sendRedirect("/projekt/confirm");
-        }else 
-            response.sendRedirect("/projekt/cart");
+            if (myBean.placeOrder(request.getRemoteUser())) {
+                response.sendRedirect("/projekt/confirm");
+            } else {
+                response.sendRedirect("/projekt/cart");
+            }
         }
-
-               if (request.getParameter("clear") != null) {
+        if (request.getParameter("clear") != null) {
             myBean.clearCart(request.getRemoteUser());
             response.sendRedirect("/projekt/cart");
-    
         }
-        
         if (request.getParameter("toCart") != null) {
-          myBean.addShoppingCart(request.getRemoteUser(),request.getParameter("productName"));
+            myBean.addShoppingCart(request.getRemoteUser(), request.getParameter("productName"));
             response.sendRedirect("/projekt/products");
-
         }
     }
 
