@@ -60,16 +60,15 @@
             </div>
             <table id="productTable">
                 <c:forEach var="cartVect" items="${cart}" varStatus="iter">
-                    <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
+                    
                         <c:forEach var="mycart" items="${cartVect}" varStatus="iter">
                             <tr>
-                                <c:out value="${mycart}"></c:out>
+                                <td><c:out value="${products[iter.index][0]}"></c:out></td>
+                                <td> <c:out value="${mycart}"></c:out></td>
 
                                 </tr>
 
                         </c:forEach>
-
-                    </tr>
 
                 </c:forEach> 
 
