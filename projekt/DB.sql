@@ -46,3 +46,9 @@ INSERT INTO Products Values ('Hat', 499);
 INSERT INTO Products Values ('Pizza', 65);
 INSERT INTO Products Values ('Spaceship', 299999999);
 INSERT INTO ShoppingCart Values ('jonas',0,0,0,0,0);
+
+INSERT INTO Customer Values ('Alexander', 'Betgatan 21, 75449 Uppsala', 'Alexander', 'Johnson' );
+INSERT INTO ShoppingCart Values ('Alexander',0,0,0,0,0);
+
+INSERT INTO Customer Values ('Hans-Erik', 'En Annan gata 2, 75449 Uppsala', 'Hans-Erik', 'Bratt' );
+INSERT INTO ShoppingCart Values ('Hans-Erik',0,0,0,0,0);
