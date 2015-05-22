@@ -50,7 +50,7 @@
 
         <div id="rightColumn">
             <span class="body" >
-            Hello and Welcome to Store!
+                <h1>Hello and Welcome to Store!</h1>
             </span>
         </div>
        

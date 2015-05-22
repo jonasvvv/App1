@@ -15,7 +15,7 @@
     <body>
     <center>
         <div id="loginbox">
-        <h1>Välkommen åter!</h1>
+        <h1>Thank You, Please Come Again!</h1>
         <% request.logout();%>
 
 
