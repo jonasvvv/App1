@@ -27,7 +27,7 @@ public class OurBean {
     @Resource(name = "jdbc/shop") // The name you entered for the JDBC resource 
     private DataSource dataSource;
 
-    public void placeOrder(String CName) {
+    public Boolean placeOrder(String CName) {
         try {
             try (Connection conn = dataSource.getConnection()) {
                 PreparedStatement getCart = conn.prepareStatement("Select * from ShoppingCart where CName=?");
@@ -37,20 +37,26 @@ public class OurBean {
 
                 PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ORDERINFO(CName, Sandbag, Clock, Hat, Pizza, Spaceship) VALUES (?,?,?,?,?,?)");
                 pstmt.setString(1, CName);
+                int x1 = cart.getInt(2);
+                int x2 = cart.getInt(3);
+                int x3 = cart.getInt(4);
+                int x4 = cart.getInt(5);
+                int x5 = cart.getInt(6);
                 pstmt.setInt(2, cart.getInt(2));
                 pstmt.setInt(3, cart.getInt(3));
                 pstmt.setInt(4, cart.getInt(4));
                 pstmt.setInt(5, cart.getInt(5));
                 pstmt.setInt(6, cart.getInt(6));
-                pstmt.executeUpdate();
-                
-                PreparedStatement cleanCart = conn.prepareStatement("UPDATE SHOPPINGCART SET Sandbag=0, Clock=0, Hat=0, Pizza=0, Spaceship=0 WHERE CName=?");
-                cleanCart.setString(1, CName);
-                cleanCart.executeUpdate();
+                if ((x1+x2+x3+x4+x5)!=0) {
+                    pstmt.executeUpdate();
+                    clearCart(CName);
+                    return true;
+                }
             }
         } catch (Throwable e) {
             out.println(e);
         }
+        return false;
     }
 
     public ArrayList getOrderHist(String CName) {
@@ -123,7 +129,7 @@ public class OurBean {
         }
         return list;
     }
-    
+
     public ArrayList getShoppingCart(String CName) {
         ArrayList list = new ArrayList();
         try {
@@ -147,7 +153,6 @@ public class OurBean {
         return list;
     }
 
-
     public void addShoppingCart(String CName, String PName) {
         try {
             try (Connection conn = dataSource.getConnection()) {
@@ -155,10 +160,10 @@ public class OurBean {
                 getCart.setString(1, CName);
                 ResultSet cart = getCart.executeQuery();
                 cart.next();
-                
+
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE SHOPPINGCART SET " + PName + "=? WHERE CName=?");
                 pstmt.setString(2, CName);
-                pstmt.setInt(1, cart.getInt(PName)+1);
+                pstmt.setInt(1, cart.getInt(PName) + 1);
                 // Create a new row in the database
 
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
@@ -168,5 +173,19 @@ public class OurBean {
             out.println(e);
         }
     }
+
+    public void clearCart(String CName) {
+        try {
+            try (Connection conn = dataSource.getConnection()) {
+                PreparedStatement cleanCart = conn.prepareStatement("UPDATE SHOPPINGCART SET Sandbag=0, Clock=0, Hat=0, Pizza=0, Spaceship=0 WHERE CName=?");
+                cleanCart.setString(1, CName);
+                cleanCart.executeUpdate();
+            }
+        } catch (Throwable e) {
+            out.println(e);
+        }
+
+    }
     
+
 }
