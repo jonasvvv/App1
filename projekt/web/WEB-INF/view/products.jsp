@@ -31,9 +31,9 @@
             </div>
 
         </div>
-        
+
         <hr>
-        
+
         <div id="leftColumn">
 
             <a href="<c:url value='products'/>" class="choosen">
@@ -51,9 +51,9 @@
         </div>
 
         <div id="rightColumn">
-        <div class="actionBar">
-           
-            
+            <div class="actionBar">
+
+
             </div>
             <table id="productTable">
                 <tr class="borderBottom">
@@ -66,9 +66,7 @@
                         <c:forEach var="product" items="${productvect}" varStatus="iter">
                             <td>
                                 <c:out value="${product}"></c:out>
-
                                 </td>
-
                         </c:forEach>
 
                         <td>

@@ -13,7 +13,7 @@
 </head>
 <body bgcolor="white">
 <center>
-    <div><img src="test.gif" alt="HTML5 Icon" width="200" height="200"></div>   
+    <div><img src="test.gif" alt="HTML5 Icon" width="400" height="400"></div>   
 Invalid username and/or password, please try
 <a href='<c:url value="login.jsp"/>'>again</a>.
 </center>

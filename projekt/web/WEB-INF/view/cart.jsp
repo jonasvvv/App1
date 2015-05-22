@@ -31,9 +31,9 @@
             </div>
 
         </div>
-        
+
         <hr>
-        
+
         <div id="leftColumn">
 
             <a href="<c:url value='products'/>" class="productButton">
@@ -52,36 +52,31 @@
 
         <div id="rightColumn">
             <div class="actionBar">
-           
-             Shoppingcart of <c:out value="${pageContext.request.userPrincipal.name}" /> 
-            
+
+                Shopping cart of <c:out value="${pageContext.request.userPrincipal.name}" /> 
+
             </div>
             <table id="productTable">
                 <c:forEach var="cartVect" items="${cart}" varStatus="iter">
-                    
-                        <c:forEach var="mycart" items="${cartVect}" varStatus="iter">
-                            <tr>
-                                <td><c:out value="${products[iter.index][0]}"></c:out></td>
-                                <td> <c:out value="${mycart}"></c:out></td>
-
-                                </tr>
-
-                        </c:forEach>
-
+                    <c:forEach var="mycart" items="${cartVect}" varStatus="iter">
+                        <tr>
+                            <td><c:out value="${products[iter.index][0]}"></c:out></td>
+                            <td> <c:out value="${mycart}"></c:out></td>
+                            </tr>
+                    </c:forEach>
                 </c:forEach> 
-
             </table>
-                
-               <div class="actionBar">
+
+            <div class="actionBar">
                 <div class="rightButton">
                     <form name='place order' method="POST" action=Controller>
                         <input type="submit" name="place" value='Place order'>
                     </form>
-                     <form name='cler cart' method="POST" action=Controller>
+                    <form name='cler cart' method="POST" action=Controller>
                         <input type="submit" name="clear" value='Clear cart '>
                     </form>
                 </div>
-         
+
             </div>   
         </div>
 
