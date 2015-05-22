@@ -57,18 +57,22 @@
                         <c:forEach var="product" items="${productvect}" varStatus="iter">
                             <td>
                                 <c:out value="${product}"></c:out>
-
+                                <c:out value="${productvect[0]}"></c:out>
 
                                 </td>
 
                         </c:forEach>
 
                         <td>
-                            <form action="addToCart" method="post">
+                            <form action="Controller" method="post">
+                                <input type="hidden"
+                                       name="productName"
+                                       value="${productvect[0]}">
                                 <input type="submit" name='toCart'
                                        value="add to cart">
                             </form>
                         </td>
+
                     </tr>
 
                 </c:forEach>   

@@ -50,6 +50,10 @@
 
         <div id="rightColumn">
 Tack för ditt köp!
+
+
+
+
         </div>
 
     </body>

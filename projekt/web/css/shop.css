@@ -31,7 +31,7 @@ hr {
 }
 
 table {
-    margin: 0 20px;
+    margin: 0 0px;
     border-spacing: 0;
     text-align: center;
     //border: solid 1px #f5eabe;
@@ -120,7 +120,7 @@ a {
     background: #aaa;
 }
 
-#productTable { width: 600px }
+#productTable { width: 650px }
 
 #productTable tr { height: 90px }
 
