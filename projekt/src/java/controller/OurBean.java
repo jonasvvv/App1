@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
+import sun.rmi.runtime.Log;
 //import static jdk.nashorn.internal.objects.NativeRegExp.source;
 
 /**
@@ -32,15 +33,18 @@ public class OurBean {
                 PreparedStatement getCart = conn.prepareStatement("Select * from ShoppingCart where CName=?");
                 getCart.setString(1, CName);
                 ResultSet cart = getCart.executeQuery();
+                cart.next();
 
-                PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ORDERINFO(CName, Prod1, Prod2, Prod3) VALUES (?,?,?,?);");
+                PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ORDERINFO(CName, Sandbag, Clock, Hat, Pizza, Spaceship) VALUES (?,?,?,?,?,?)");
                 pstmt.setString(1, CName);
-                pstmt.setInt(2, cart.getInt("Prod1"));
-                pstmt.setInt(3, cart.getInt("Prod2"));
-                pstmt.setInt(4, cart.getInt("Prod3"));
+                pstmt.setInt(2, cart.getInt(2));
+                pstmt.setInt(3, cart.getInt(3));
+                pstmt.setInt(4, cart.getInt(4));
+                pstmt.setInt(5, cart.getInt(5));
+                pstmt.setInt(6, cart.getInt(6));
                 pstmt.executeUpdate();
                 
-                PreparedStatement cleanCart = conn.prepareStatement("UPDATE SHOPPINGCART SET Prod1=0, Prod2=0, Prod3=0, Prod4=0 WHERE CName=?");
+                PreparedStatement cleanCart = conn.prepareStatement("UPDATE SHOPPINGCART SET Sandbag=0, Clock=0, Hat=0, Pizza=0, Spaceship=0 WHERE CName=?");
                 cleanCart.setString(1, CName);
                 cleanCart.executeUpdate();
             }
@@ -55,14 +59,14 @@ public class OurBean {
             try (Connection conn = dataSource.getConnection()) {
 
                 // Create a new row in the database
-                PreparedStatement pstmt = conn.prepareStatement("SELECT OID, OTime, PName, Amount FROM OrderID natural join OrderInfo where CName=?");
+                PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM OrderInfo where CName=?");
                 pstmt.setString(1, CName);
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
                 ResultSet rs = pstmt.executeQuery();
 
                 while (rs.next()) {
                     ArrayList row = new ArrayList();
-                    for (int i = 1; i <= 4; i++) {
+                    for (int i = 3; i <= 8; i++) {
                         row.add(rs.getString(i));
                     }
                     list.add(row);
@@ -131,7 +135,7 @@ public class OurBean {
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
                     ArrayList row = new ArrayList();
-                    for (int i = 2; i <= 5; i++) {
+                    for (int i = 2; i <= 6; i++) {
                         row.add(rs.getString(i));
                     }
                     list.add(row);
@@ -147,15 +151,14 @@ public class OurBean {
     public void addShoppingCart(String CName, String PName) {
         try {
             try (Connection conn = dataSource.getConnection()) {
-                PreparedStatement getCart = conn.prepareStatement("Select ? from ShoppingCart where CName=?");
-                getCart.setString(1, PName);
-                getCart.setString(2, CName);
+                PreparedStatement getCart = conn.prepareStatement("Select * from ShoppingCart where CName=?");
+                getCart.setString(1, CName);
                 ResultSet cart = getCart.executeQuery();
+                cart.next();
                 
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE SHOPPINGCART SET ?=? WHERE CName=?");
-                pstmt.setString(1, PName);
-                pstmt.setString(3, CName);
-                pstmt.setInt(2, 10);
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE SHOPPINGCART SET " + PName + "=? WHERE CName=?");
+                pstmt.setString(2, CName);
+                pstmt.setInt(1, cart.getInt(PName)+1);
                 // Create a new row in the database
 
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
