@@ -131,6 +131,8 @@ a {
     background-color: inherit;
 }
 
-
+tr.borderBottom th{
+   border-bottom: 1pt solid black; 
+}
 
 

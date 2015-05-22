@@ -53,11 +53,14 @@
         <div id="rightColumn">
         <div class="actionBar">
            
-            The products
             
             </div>
             <table id="productTable">
-
+                <tr class="borderBottom">
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
                 <c:forEach var="productvect" items="${products}" varStatus="iter">
                     <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
                         <c:forEach var="product" items="${productvect}" varStatus="iter">

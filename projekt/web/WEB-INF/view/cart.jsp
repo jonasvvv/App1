@@ -53,7 +53,7 @@
         <div id="rightColumn">
             <div class="actionBar">
            
-               <c:out value="${pageContext.request.userPrincipal.name}" /> kundvagn!
+               <c:out value="${pageContext.request.userPrincipal.name}" /> Shoppingcart
             
             </div>
             <table id="productTable">
