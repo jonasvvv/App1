@@ -9,10 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/shop.css">
         <title>logout</title>
     </head>
     <body>
     <center>
+        <div id="loginbox">
         <h1>Välkommen åter!</h1>
         <% request.logout();%>
 
@@ -20,7 +22,7 @@
         <form name='back' action=login.jsp>
             <input type="submit" value='back'>
         </form>
-
+        </div>
 
 
     </center> 

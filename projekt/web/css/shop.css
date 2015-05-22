@@ -12,6 +12,7 @@ body {
     width: 800px;
     text-align: center;
     margin: 20px auto;
+    background-color: #000; 
 }
 h1 {
     text-align : center;
@@ -23,9 +24,9 @@ form {
 }
 
 hr {
-    //border: 0;
+    border: 0;
     //background-color: #333;
-    //height: 1px;
+    height: 1px;
     margin: 0px;
     width: 800px;
 }
@@ -37,7 +38,7 @@ table {
     //border: solid 1px #f5eabe;
 }
 
-.evenProductRow { background-color: #edf8f7 }
+.evenProductRow { background-color: #deadbe }
 
 .oddProductRow { background-color: #fff }
 
@@ -54,7 +55,7 @@ a {
 #header {
     margin: 0px;
     height: 100px;
-    background: #c3e3e0;
+    background: #ad335c;
     text-align: left;
     float: none;
     clear: none;
@@ -67,9 +68,9 @@ a {
 }
 
 #loginbox{
-    background: #d3ede8;
+    background: #deadbe;
     width: 500px;
-    margin-top: 100px;
+    //margin-top: 100px;
 }
 .shopname{
     margin-top: 0px;
@@ -91,27 +92,27 @@ a {
     height: 500px;
     width: 150px;
     float: left;
-    background: #c3e3e0; 
+    background: #ad335c; 
 }
 
 .productButton{
     margin: 15px 22px;
     padding: 13px;
     display: block;
-    background-color: #d3ede8;
+    background-color: #deadbe;
 }
 
 .choosen{
     margin: 15px 22px;
     padding: 13px;
     display: block;
-    background-color: #f3fdf7;
+    background-color: #bd5c7d;
 }
 #rightColumn {
-    height: 400px;
+    height: 500px;
     width: 650px;
     float: left;
-    background: #fff;
+    background: #deadbe;
 }
 
 #productTable { width: 650px }
@@ -127,7 +128,7 @@ a {
     width: 650px;
     float: left;
     text-align: center;
-    background-color: #63fdf7;
+    background-color: inherit;
 }
 
 

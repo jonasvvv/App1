@@ -50,7 +50,7 @@
 
         <div id="rightColumn">
             <span class="body" >
-            Hej här kan man nu skriva lite text om saker
+            Hello and Welcome to Store!
             </span>
         </div>
        
