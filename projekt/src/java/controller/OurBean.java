@@ -131,7 +131,7 @@ public class OurBean {
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
                     ArrayList row = new ArrayList();
-                    for (int i = 1; i <= 2; i++) {
+                    for (int i = 2; i <= 5; i++) {
                         row.add(rs.getString(i));
                     }
                     list.add(row);
