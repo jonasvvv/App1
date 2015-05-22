@@ -4,6 +4,11 @@
         <web-resource-collection>
             <web-resource-name>Secure resources</web-resource-name>
             <url-pattern>/index.jsp</url-pattern>
+            <url-pattern>/cart</url-pattern>
+            <url-pattern>/order</url-pattern>
+            <url-pattern>/confirm</url-pattern>
+            <url-pattern>/products</url-pattern>
+
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

@@ -22,8 +22,9 @@ import javax.sql.DataSource;
  */
 @WebServlet(name = "Controller",
         loadOnStartup = 1,
-        urlPatterns = {"/Controller", "/products",
-            "/confirm",
+        urlPatterns = {"/products",
+            "/Controller",
+                "/confirm",
             "/cart",
             "/order"})
 
@@ -47,12 +48,7 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-
-            String nr = request.getParameter("nr");
-            String nr2 = request.getParameter("nr2");
-
-        }
+ 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -83,7 +79,6 @@ public class Controller extends HttpServlet {
         } else if (userPath.equals("/confirm")) {
 
         }
-
         String url = "/WEB-INF/view" + userPath + ".jsp";
 
         try {
@@ -109,6 +104,8 @@ public class Controller extends HttpServlet {
             myBean.placeOrder(request.getRemoteUser());
             response.sendRedirect("/projekt/confirm");
 
+    
+            
         }
 
         if (request.getParameter("toCart") != null) {
