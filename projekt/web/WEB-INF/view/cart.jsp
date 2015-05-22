@@ -50,24 +50,22 @@
 
         <div id="rightColumn">
             <div class="actionBar">
-                
                 <div class="rightButton">
                     <form name='place order' method="POST" action=Controller>
                         <input type="submit" name="place" value='Place order'>
                     </form>
                 </div>
-            
             visa saker i kundvagn
+            
             </div>
             <table id="productTable">
                 <c:forEach var="cartVect" items="${cart}" varStatus="iter">
                     <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
                         <c:forEach var="mycart" items="${cartVect}" varStatus="iter">
-                            <td>
+                            <tr>
                                 <c:out value="${mycart}"></c:out>
 
-
-                                </td>
+                                </tr>
 
                         </c:forEach>
 
