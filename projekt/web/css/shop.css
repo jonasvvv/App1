@@ -23,11 +23,11 @@ form {
 }
 
 hr {
-    border: 0;
-    background-color: #333;
-    height: 1px;
-    margin: 0 25px;
-    width: 300px;
+    //border: 0;
+    //background-color: #333;
+    //height: 1px;
+    margin: 0px;
+    width: 800px;
 }
 
 table {
@@ -88,7 +88,7 @@ a {
 
 /* index page styles */
 #leftColumn {
-    height: 400px;
+    height: 500px;
     width: 150px;
     float: left;
     background: #c3e3e0; 
@@ -111,12 +111,12 @@ a {
     height: 400px;
     width: 650px;
     float: left;
-    background: #aaa;
+    background: #fff;
 }
 
 #productTable { width: 650px }
 
-#productTable tr { height: 90px }
+#productTable tr { height: 40px }
 
 #productTable td { width: 145px }
 

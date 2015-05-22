@@ -31,7 +31,9 @@
             </div>
 
         </div>
-
+        
+        <hr>
+        
         <div id="leftColumn">
 
             <a href="<c:url value='products'/>" class="choosen">
