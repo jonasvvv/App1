@@ -102,13 +102,18 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         if (request.getParameter("place") != null) {
-            myBean.placeOrder(request.getRemoteUser());
+        if(myBean.placeOrder(request.getRemoteUser())){
             response.sendRedirect("/projekt/confirm");
-
-    
-            
+        }else 
+            response.sendRedirect("/projekt/cart");
         }
 
+               if (request.getParameter("clear") != null) {
+            myBean.clearCart(request.getRemoteUser());
+            response.sendRedirect("/projekt/cart");
+    
+        }
+        
         if (request.getParameter("toCart") != null) {
           myBean.addShoppingCart(request.getRemoteUser(),request.getParameter("productName"));
             response.sendRedirect("/projekt/products");

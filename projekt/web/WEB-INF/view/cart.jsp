@@ -77,6 +77,9 @@
                     <form name='place order' method="POST" action=Controller>
                         <input type="submit" name="place" value='Place order'>
                     </form>
+                     <form name='cler cart' method="POST" action=Controller>
+                        <input type="submit" name="clear" value='Clear cart '>
+                    </form>
                 </div>
          
             </div>   
