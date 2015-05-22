@@ -57,7 +57,7 @@
             </div>
             
           visa saker i kundvagn
-          <table>
+         <table id="productTable">
                           <c:forEach var="cartVect" items="${cart}" varStatus="iter">
                     <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
                         <c:forEach var="mycart" items="${cartVect}" varStatus="iter">

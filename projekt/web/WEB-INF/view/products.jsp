@@ -57,7 +57,6 @@
                         <c:forEach var="product" items="${productvect}" varStatus="iter">
                             <td>
                                 <c:out value="${product}"></c:out>
-                                <c:out value="${productvect[0]}"></c:out>
 
                                 </td>
 
