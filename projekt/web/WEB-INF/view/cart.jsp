@@ -31,9 +31,9 @@
             </div>
 
         </div>
-        
+
         <hr>
-        
+
         <div id="leftColumn">
 
             <a href="<c:url value='products'/>" class="productButton">
@@ -52,36 +52,48 @@
 
         <div id="rightColumn">
             <div class="actionBar">
-           
-               <c:out value="${pageContext.request.userPrincipal.name}" /> Shoppingcart
-            
+
+                <h1><c:out value="${pageContext.request.userPrincipal.name}" /> Shoppingcart</h1>
+
             </div>
             <table id="productTable">
+                <tr>
+                    <th>Product</th>
+                    <th>pcs</th>
+                    <th>Price/pcs</th>
+                </tr>
+
                 <c:forEach var="cartVect" items="${cart}" varStatus="iter">
-                    
-                        <c:forEach var="mycart" items="${cartVect}" varStatus="iter">
-                            <tr>
-                                <td><c:out value="${products[iter.index][0]}"></c:out></td>
-                                <td> <c:out value="${mycart}"></c:out></td>
 
-                                </tr>
+                    <c:forEach var="mycart" items="${cartVect}" varStatus="iter">
+                        <tr>
+                            <td><c:out value="${products[iter.index][0]}"></c:out></td>
+                            <td> <c:out value="${mycart}"></c:out></td>
+                            <td> <c:out value="${products[iter.index][1]}"></c:out></td>
+                            </tr>
 
-                        </c:forEach>
+                    </c:forEach>
 
                 </c:forEach> 
-
+                <tr>
+                </tr>
+                <tr>
+                    <td><b>total</b></td>
+                    <td> </td>
+                    <td><c:out value="${totalcart}"></c:out></td>
+                </tr>
             </table>
-                
-               <div class="actionBar">
+
+            <div class="actionBar">
                 <div class="rightButton">
                     <form name='place order' method="POST" action=Controller>
                         <input type="submit" name="place" value='Place order'>
                     </form>
-                     <form name='cler cart' method="POST" action=Controller>
+                    <form name='cler cart' method="POST" action=Controller>
                         <input type="submit" name="clear" value='Clear cart '>
                     </form>
                 </div>
-         
+
             </div>   
         </div>
 

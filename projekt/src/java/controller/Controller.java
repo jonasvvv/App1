@@ -74,6 +74,7 @@ public class Controller extends HttpServlet {
         } else if (userPath.equals("/cart")) {
             request.setAttribute("cart", myBean.getShoppingCart(request.getRemoteUser()));
             request.setAttribute("products", myBean.getProducts());
+            request.setAttribute("totalcart", myBean.getTotalCart(request.getRemoteUser()));
         } else if (userPath.equals("/order")) {
             request.setAttribute("order", myBean.getOrderHist(request.getRemoteUser()));
             request.setAttribute("products", myBean.getProducts());

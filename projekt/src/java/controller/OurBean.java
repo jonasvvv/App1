@@ -47,7 +47,7 @@ public class OurBean {
                 pstmt.setInt(4, cart.getInt(4));
                 pstmt.setInt(5, cart.getInt(5));
                 pstmt.setInt(6, cart.getInt(6));
-                if ((x1+x2+x3+x4+x5)!=0) {
+                if ((x1 + x2 + x3 + x4 + x5) != 0) {
                     pstmt.executeUpdate();
                     clearCart(CName);
                     return true;
@@ -153,6 +153,35 @@ public class OurBean {
         return list;
     }
 
+    public int getTotalCart(String CName) {
+        int sum = 0;
+        ArrayList products;
+        ArrayList row;
+        String price;
+        try {
+            try (Connection conn = dataSource.getConnection()) {
+                products = getProducts();
+                // Create a new row in the database
+                PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM ShoppingCart where CName=?");
+                //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
+                pstmt.setString(1, CName);
+                ResultSet rs = pstmt.executeQuery();
+                
+                while (rs.next()) {
+                    for (int i = 2; i <= 6; i++) {
+                        row = (ArrayList)products.get(i-2);
+                        price = (String)row.get(1);
+                        sum = sum + rs.getInt(i)*Integer.parseInt(price);
+                    }
+                    
+                }
+            }
+        } catch (Throwable e) {
+            out.println(e);
+        }
+        return sum;
+    }
+
     public void addShoppingCart(String CName, String PName) {
         try {
             try (Connection conn = dataSource.getConnection()) {
@@ -186,6 +215,5 @@ public class OurBean {
         }
 
     }
-    
 
 }

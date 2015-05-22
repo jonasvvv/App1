@@ -56,7 +56,7 @@
             
             </div>
             <table id="productTable">
-                <tr class="borderBottom">
+                <tr>
                     <th>Product</th>
                     <th>Price</th>
                     <th></th>
