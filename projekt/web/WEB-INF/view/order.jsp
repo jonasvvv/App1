@@ -53,7 +53,7 @@
         <div id="rightColumn">
               <div class="actionBar">
            
-               <c:out value="${pageContext.request.userPrincipal.name}" /> Orderhistorik
+              Order History of <c:out value="${pageContext.request.userPrincipal.name}" /> 
             
             </div>
 
