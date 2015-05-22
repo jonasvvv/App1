@@ -52,12 +52,8 @@
 
         <div id="rightColumn">
             <div class="actionBar">
-                <div class="rightButton">
-                    <form name='place order' method="POST" action=Controller>
-                        <input type="submit" name="place" value='Place order'>
-                    </form>
-                </div>
-            visa saker i kundvagn
+           
+               <c:out value="${pageContext.request.userPrincipal.name}" /> kundvagn!
             
             </div>
             <table id="productTable">
@@ -75,6 +71,15 @@
                 </c:forEach> 
 
             </table>
+                
+               <div class="actionBar">
+                <div class="rightButton">
+                    <form name='place order' method="POST" action=Controller>
+                        <input type="submit" name="place" value='Place order'>
+                    </form>
+                </div>
+         
+            </div>   
         </div>
 
     </body>
