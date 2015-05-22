@@ -51,7 +51,11 @@
         </div>
 
         <div id="rightColumn">
-
+        <div class="actionBar">
+           
+            The products
+            
+            </div>
             <table id="productTable">
 
                 <c:forEach var="productvect" items="${products}" varStatus="iter">

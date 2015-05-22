@@ -51,7 +51,26 @@
         </div>
 
         <div id="rightColumn">
+              <div class="actionBar">
+           
+               <c:out value="${pageContext.request.userPrincipal.name}" /> Orderhistorik
+            
+            </div>
+
+            
         <table id="productTable">
+            <tr>
+                <td></td>
+               <c:forEach var="myproducts" items="${products}" varStatus="iter">
+                            <td>
+                                <c:out value="${myproducts[0]}"></c:out>
+
+
+                                </td>
+
+                        </c:forEach>
+
+            </tr>
                           <c:forEach var="orderVect" items="${order}" varStatus="iter">
                     <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
                         <c:forEach var="myorder" items="${orderVect}" varStatus="iter">
