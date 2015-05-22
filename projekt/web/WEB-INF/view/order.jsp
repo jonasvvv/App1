@@ -49,7 +49,7 @@
         </div>
 
         <div id="rightColumn">
-            
+            <tabel>
                           <c:forEach var="orderVect" items="${order}" varStatus="iter">
                     <tr class="${((iter.index % 2) == 0) ? 'evenProductRow' : 'oddProductRow'}">
                         <c:forEach var="myorder" items="${orderVect}" varStatus="iter">
@@ -63,6 +63,7 @@
                     </tr>
 
                 </c:forEach> 
+            </tabel>
         </div>
 
     </body>
