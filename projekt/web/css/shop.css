@@ -128,10 +128,12 @@ a {
 
 
 /* cart page styles */
-#actionBar {
-    margin: 30px;
-    width: 750px;
+.actionBar {
+    margin: 0px;
+    width: 650px;
+    float: left;
     text-align: center;
+    background-color: #63fdf7;
 }
 
 

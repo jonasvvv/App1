@@ -111,7 +111,7 @@ public class Controller extends HttpServlet {
         }
 
         if (request.getParameter("toCart") != null) {
-          // myBean.addShoppingCart(request.getRemoteUser(),request.getParameter("productName"));
+          myBean.addShoppingCart(request.getRemoteUser(),request.getParameter("productName"));
             response.sendRedirect("/projekt/products");
 
         }

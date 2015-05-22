@@ -131,7 +131,7 @@ public class OurBean {
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
                     ArrayList row = new ArrayList();
-                    for (int i = 1; i <= 2; i++) {
+                    for (int i = 2; i <= 5; i++) {
                         row.add(rs.getString(i));
                     }
                     list.add(row);
@@ -155,7 +155,7 @@ public class OurBean {
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE SHOPPINGCART SET ?=? WHERE CName=?");
                 pstmt.setString(1, PName);
                 pstmt.setString(3, CName);
-                pstmt.setInt(2, cart.getInt(1)+1);
+                pstmt.setInt(2, 10);
                 // Create a new row in the database
 
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
