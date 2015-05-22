@@ -37,13 +37,6 @@ table {
     //border: solid 1px #f5eabe;
 }
 
-table.productTable {
-    margin: 0 20px;
-    border-spacing: 0;
-    text-align: center;
-    border: solid 1px #f5eabe;
-}
-
 .evenProductRow { background-color: #edf8f7 }
 
 .oddProductRow { background-color: #fff }
@@ -62,7 +55,7 @@ a {
     margin: 0px;
     height: 100px;
     background: #c3e3e0;
-    //text-align: center;
+    text-align: left;
     float: none;
     clear: none;
 }
@@ -79,9 +72,10 @@ a {
     margin-top: 100px;
 }
 .shopname{
-    margin-left: 50px;
+    margin-top: 0px;
+    margin-left: 18px;
     font-family: 'American Typewriter', Courier, monospace;
-    font-size: 20px;
+    font-size: 40px;
     color: #333;
 }
 

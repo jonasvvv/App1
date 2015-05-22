@@ -26,7 +26,7 @@
 
             <div class="shopname">
                 <a href ="index.jsp" >
-                    <h1>Store</h1>
+                    Store
                 </a>     
             </div>
 
