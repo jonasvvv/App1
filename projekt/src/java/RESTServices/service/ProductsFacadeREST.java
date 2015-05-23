@@ -32,7 +32,7 @@ public class ProductsFacadeREST extends AbstractFacade<Products> {
     public ProductsFacadeREST() {
         super(Products.class);
     }
-
+/*
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
@@ -52,7 +52,7 @@ public class ProductsFacadeREST extends AbstractFacade<Products> {
     public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
-
+*/
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
