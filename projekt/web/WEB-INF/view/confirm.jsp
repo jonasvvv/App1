@@ -51,7 +51,7 @@
         </div>
 
         <div id="rightColumn">
-Tack för ditt köp!
+Thank you for your purchase!
 
 
 
