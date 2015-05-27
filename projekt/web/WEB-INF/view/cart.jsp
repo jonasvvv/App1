@@ -1,5 +1,4 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : index
     Created on : 2015-apr-27, 11:09:14
@@ -53,7 +52,7 @@
         <div id="rightColumn">
             <div class="actionBar">
 
-<h1>Shopping cart of <c:out value="${pageContext.request.userPrincipal.name}" /> </h1>
+                <h1>Shopping cart of <c:out value="${pageContext.request.userPrincipal.name}" /> </h1>
 
             </div>
             <table id="productTable">

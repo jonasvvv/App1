@@ -53,6 +53,6 @@
                 <h1>Hello and Welcome to Store!</h1>
             </span>
         </div>
-       
+
     </body>
 </html>

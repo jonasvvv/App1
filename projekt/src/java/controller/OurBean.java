@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import static java.lang.System.out;
@@ -14,19 +9,24 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
-import sun.rmi.runtime.Log;
-//import static jdk.nashorn.internal.objects.NativeRegExp.source;
 
 /**
  *
- * @author Alexander
+ * @author Grupp 24
  */
 @Stateless
 public class OurBean {
 
-    @Resource(name = "jdbc/shop") // The name you entered for the JDBC resource 
+    @Resource(name = "jdbc/shop")
     private DataSource dataSource;
 
+    /**
+     * Places an order in the database and clears the cart if the order is not
+     * empty.
+     *
+     * @param CName Customer name
+     * @return false if an empty order was being placed else true.
+     */
     public Boolean placeOrder(String CName) {
         try {
             try (Connection conn = dataSource.getConnection()) {
@@ -59,6 +59,12 @@ public class OurBean {
         return false;
     }
 
+    /**
+     * Gets the order history of the specified customer.
+     *
+     * @param CName Customer name.
+     * @return List containing the order history of specified customer.
+     */
     public ArrayList getOrderHist(String CName) {
         ArrayList list = new ArrayList();
         try {
@@ -84,6 +90,12 @@ public class OurBean {
         return list;
     }
 
+    /**
+     * Gets the customer information of specified user.
+     *
+     * @param CName Customer name
+     * @return list of customer information.
+     */
     public ArrayList getCInfo(String CName) {
         ArrayList list = new ArrayList();
         try {
@@ -108,6 +120,11 @@ public class OurBean {
         return list;
     }
 
+    /**
+     * Gets the product information
+     *
+     * @return list containing product information.
+     */
     public ArrayList getProducts() {
         ArrayList list = new ArrayList();
         try {
@@ -130,6 +147,12 @@ public class OurBean {
         return list;
     }
 
+    /**
+     * Gets the Shopping cart for specified user.
+     *
+     * @param CName Customer name
+     * @return list containing shopping cart.
+     */
     public ArrayList getShoppingCart(String CName) {
         ArrayList list = new ArrayList();
         try {
@@ -153,6 +176,12 @@ public class OurBean {
         return list;
     }
 
+    /**
+     * Gets the total sum of specified customers shopping cart.
+     *
+     * @param CName Customer name
+     * @return sum of all products prices in the shopping cart.
+     */
     public int getTotalCart(String CName) {
         int sum = 0;
         ArrayList products;
@@ -166,14 +195,14 @@ public class OurBean {
                 //PreparedStatement pstmt = conn.prepareStatement("SHOW TABLES");
                 pstmt.setString(1, CName);
                 ResultSet rs = pstmt.executeQuery();
-                
+
                 while (rs.next()) {
                     for (int i = 2; i <= 6; i++) {
-                        row = (ArrayList)products.get(i-2);
-                        price = (String)row.get(1);
-                        sum = sum + rs.getInt(i)*Integer.parseInt(price);
+                        row = (ArrayList) products.get(i - 2);
+                        price = (String) row.get(1);
+                        sum = sum + rs.getInt(i) * Integer.parseInt(price);
                     }
-                    
+
                 }
             }
         } catch (Throwable e) {
@@ -182,6 +211,12 @@ public class OurBean {
         return sum;
     }
 
+    /**
+     * adds one specified product to the shopping cart of specified customer.
+     *
+     * @param CName Customer name.
+     * @param PName Product name.
+     */
     public void addShoppingCart(String CName, String PName) {
         try {
             try (Connection conn = dataSource.getConnection()) {
@@ -203,6 +238,11 @@ public class OurBean {
         }
     }
 
+    /**
+     * Clears the shopping cart of products for specified user.
+     *
+     * @param CName Customer name.
+     */
     public void clearCart(String CName) {
         try {
             try (Connection conn = dataSource.getConnection()) {

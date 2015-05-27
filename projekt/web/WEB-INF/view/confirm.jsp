@@ -1,5 +1,4 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : index
     Created on : 2015-apr-27, 11:09:14
@@ -25,15 +24,15 @@
             </div>
 
             <div class="shopname">
-                 <a href ="index.jsp" >
+                <a href ="index.jsp" >
                     Store
                 </a>     
             </div>
 
         </div>
-        
+
         <hr>
-        
+
         <div id="leftColumn">
 
             <a href="<c:url value='products'/>" class="productButton">
@@ -51,11 +50,7 @@
         </div>
 
         <div id="rightColumn">
-Thank you for your purchase!
-
-
-
-
+            Thank you for your purchase!
         </div>
 
     </body>

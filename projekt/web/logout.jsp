@@ -15,13 +15,12 @@
     <body>
     <center>
         <div id="loginbox">
-        <h1>Thank You, Please Come Again!</h1>
-        <% request.logout();%>
+            <h1>Thank You, Please Come Again!</h1>
+            <% request.logout();%>
 
-
-        <form name='back' action=login.jsp>
-            <input type="submit" value='back'>
-        </form>
+            <form name='back' action=login.jsp>
+                <input type="submit" value='back'>
+            </form>
         </div>
 
 

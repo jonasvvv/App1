@@ -6,19 +6,16 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 /**
  *
- * @author jonasviklund
+ * @author Grupp 24
  */
 @WebServlet(name = "Controller",
         loadOnStartup = 1,
@@ -33,25 +30,6 @@ public class Controller extends HttpServlet {
     @EJB
     private OurBean myBean;
 
-    @Resource(name = "jdbc/shop") // The name you entered for the JDBC resource 
-    private DataSource dataSource;
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -63,23 +41,24 @@ public class Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
 
-        // if (request.getParameter("products") != null) {
-        //  }
         String userPath = request.getServletPath();
 
-        if (userPath.equals("/products")) {
-            request.setAttribute("products", myBean.getProducts());
-        } else if (userPath.equals("/cart")) {
-            request.setAttribute("cart", myBean.getShoppingCart(request.getRemoteUser()));
-            request.setAttribute("products", myBean.getProducts());
-            request.setAttribute("totalcart", myBean.getTotalCart(request.getRemoteUser()));
-        } else if (userPath.equals("/order")) {
-            request.setAttribute("order", myBean.getOrderHist(request.getRemoteUser()));
-            request.setAttribute("products", myBean.getProducts());
-        } else if (userPath.equals("/confirm")) {
-
+        switch (userPath) {
+            case "/products":
+                request.setAttribute("products", myBean.getProducts());
+                break;
+            case "/cart":
+                request.setAttribute("cart", myBean.getShoppingCart(request.getRemoteUser()));
+                request.setAttribute("products", myBean.getProducts());
+                request.setAttribute("totalcart", myBean.getTotalCart(request.getRemoteUser()));
+                break;
+            case "/order":
+                request.setAttribute("order", myBean.getOrderHist(request.getRemoteUser()));
+                request.setAttribute("products", myBean.getProducts());
+                break;
+            case "/confirm":
+                break;
         }
         String url = "/WEB-INF/view" + userPath + ".jsp";
 
@@ -101,8 +80,8 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         if (request.getParameter("place") != null) {
+            //checks to see if the user has placed an empty order.
             if (myBean.placeOrder(request.getRemoteUser())) {
                 response.sendRedirect("/projekt/confirm");
             } else {
@@ -118,15 +97,4 @@ public class Controller extends HttpServlet {
             response.sendRedirect("/projekt/products");
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
